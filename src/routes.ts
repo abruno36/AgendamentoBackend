@@ -25,9 +25,9 @@ router.post('/session', new AuthUserController().handle)
 router.get('/me', isAuthenticated,  new DetailuserController().handle )
 
 //-- ROTAS SCHEDULING --
-router.post('/Scheduling', isAuthenticated, new CreateSchedulingController().handle )
-router.delete('/Scheduling', isAuthenticated, new RemoveSchedulingController().handle )
-router.get('/Schedulings', isAuthenticated, new ListSchedulingsController().handle )
-router.put('/Scheduling/finish', isAuthenticated, new FinishSchedulingController().handle )
+router.post('/scheduling', isAuthenticated, new CreateSchedulingController().handle )
+router.delete('/scheduling', isAuthenticated, new RemoveSchedulingController().handle )
+router.get('/schedulings', isAuthenticated, new ListSchedulingsController().handle )
+router.put('/scheduling/finish', isAuthenticated, new FinishSchedulingController().handle )
 
 export { router };
