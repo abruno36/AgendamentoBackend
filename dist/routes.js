@@ -24,7 +24,7 @@ router.post('/users', new CreateUserController_1.CreateUserController().handle);
 router.post('/session', new AuthUserController_1.AuthUserController().handle);
 router.get('/me', isAuthenticated_1.isAuthenticated, new DetailUserController_1.DetailuserController().handle);
 //-- ROTAS SCHEDULING --
-router.post('/Scheduling', isAuthenticated_1.isAuthenticated, new CreateSchedulingController_1.CreateSchedulingController().handle);
-router.delete('/Scheduling', isAuthenticated_1.isAuthenticated, new RemoveSchedulingController_1.RemoveSchedulingController().handle);
-router.get('/Schedulings', isAuthenticated_1.isAuthenticated, new ListSchedulingsController_1.ListSchedulingsController().handle);
-router.put('/Scheduling/finish', isAuthenticated_1.isAuthenticated, new FinishSchedulingController_1.FinishSchedulingController().handle);
+router.post('/scheduling', isAuthenticated_1.isAuthenticated, new CreateSchedulingController_1.CreateSchedulingController().handle);
+router.delete('/scheduling', isAuthenticated_1.isAuthenticated, new RemoveSchedulingController_1.RemoveSchedulingController().handle);
+router.get('/schedulings', isAuthenticated_1.isAuthenticated, new ListSchedulingsController_1.ListSchedulingsController().handle);
+router.put('/scheduling/finish', isAuthenticated_1.isAuthenticated, new FinishSchedulingController_1.FinishSchedulingController().handle);
