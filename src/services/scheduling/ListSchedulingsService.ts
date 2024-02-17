@@ -3,7 +3,7 @@ import prismaClient from "../../prisma";
 class ListSchedulingsService{
   async execute(){
 
-    const Schedulings = await prismaClient.scheduling.findMany({
+    const schedulings = await prismaClient.scheduling.findMany({
       where:{
         status: false,
       },
@@ -12,7 +12,7 @@ class ListSchedulingsService{
       }
     })
 
-    return Schedulings;
+    return schedulings;
 
   }
 }

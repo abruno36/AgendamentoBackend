@@ -14,10 +14,10 @@ const RemoveSchedulingService_1 = require("../../services/scheduling/RemoveSched
 class RemoveSchedulingController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const Scheduling_id = req.query.Scheduling_id;
+            const scheduling_id = req.query.scheduling_id;
             const removeScheduling = new RemoveSchedulingService_1.RemoveSchedulingService();
             const Scheduling = yield removeScheduling.execute({
-                Scheduling_id
+                scheduling_id
             });
             return res.json(Scheduling);
         });

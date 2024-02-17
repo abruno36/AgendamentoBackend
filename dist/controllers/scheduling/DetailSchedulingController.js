@@ -8,22 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RemoveSchedulingService = void 0;
-const prisma_1 = __importDefault(require("../../prisma"));
-class RemoveSchedulingService {
-    execute({ scheduling_id }) {
+exports.DetailSchedulingController = void 0;
+const DetailSchedulingService_1 = require("../../services/scheduling/DetailSchedulingService");
+class DetailSchedulingController {
+    handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const scheduling = yield prisma_1.default.scheduling.delete({
-                where: {
-                    id: scheduling_id,
-                }
-            });
-            return scheduling;
+            const scheduling_id = req.scheduling_id;
+            const detailUserService = new DetailSchedulingService_1.DetailSchedulingService();
+            const scheduling = yield detailUserService.execute(scheduling_id);
+            return res.json(scheduling);
         });
     }
 }
-exports.RemoveSchedulingService = RemoveSchedulingService;
+exports.DetailSchedulingController = DetailSchedulingController;

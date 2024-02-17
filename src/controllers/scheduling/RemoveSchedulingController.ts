@@ -3,12 +3,12 @@ import { RemoveSchedulingService } from '../../services/scheduling/RemoveSchedul
 
 class RemoveSchedulingController{
   async handle(req: Request, res: Response){
-    const Scheduling_id = req.query.Scheduling_id as string;
+    const scheduling_id = req.query.scheduling_id as string;
 
     const removeScheduling = new RemoveSchedulingService();
 
     const Scheduling = await removeScheduling.execute({
-      Scheduling_id
+      scheduling_id
     });
 
     return res.json(Scheduling);

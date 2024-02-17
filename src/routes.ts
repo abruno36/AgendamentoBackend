@@ -9,6 +9,7 @@ import { CreateSchedulingController } from './controllers/scheduling/CreateSched
 import { RemoveSchedulingController } from './controllers/scheduling/RemoveSchedulingController'
 import { ListSchedulingsController } from './controllers/scheduling/ListSchedulingsController'
 import { FinishSchedulingController } from './controllers/scheduling/FinishSchedulingController'
+import { DetailSchedulingController } from './controllers/scheduling/DetailSchedulingController'
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
@@ -28,6 +29,7 @@ router.get('/me', isAuthenticated,  new DetailuserController().handle )
 router.post('/scheduling', isAuthenticated, new CreateSchedulingController().handle )
 router.delete('/scheduling', isAuthenticated, new RemoveSchedulingController().handle )
 router.get('/schedulings', isAuthenticated, new ListSchedulingsController().handle )
+router.get('/scheduling/detail', isAuthenticated, new DetailSchedulingController().handle )
 router.put('/scheduling/finish', isAuthenticated, new FinishSchedulingController().handle )
 
 export { router };

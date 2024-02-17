@@ -15,17 +15,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FinishSchedulingService = void 0;
 const prisma_1 = __importDefault(require("../../prisma"));
 class FinishSchedulingService {
-    execute({ Scheduling_id }) {
+    execute({ scheduling_id }) {
         return __awaiter(this, void 0, void 0, function* () {
-            const Scheduling = yield prisma_1.default.scheduling.update({
+            const scheduling = yield prisma_1.default.scheduling.update({
                 where: {
-                    id: Scheduling_id
+                    id: scheduling_id
                 },
                 data: {
                     status: true,
                 }
             });
-            return Scheduling;
+            return scheduling;
         });
     }
 }

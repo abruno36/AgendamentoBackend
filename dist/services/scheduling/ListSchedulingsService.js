@@ -17,7 +17,7 @@ const prisma_1 = __importDefault(require("../../prisma"));
 class ListSchedulingsService {
     execute() {
         return __awaiter(this, void 0, void 0, function* () {
-            const Schedulings = yield prisma_1.default.scheduling.findMany({
+            const schedulings = yield prisma_1.default.scheduling.findMany({
                 where: {
                     status: false,
                 },
@@ -25,7 +25,7 @@ class ListSchedulingsService {
                     created_at: 'desc'
                 }
             });
-            return Schedulings;
+            return schedulings;
         });
     }
 }

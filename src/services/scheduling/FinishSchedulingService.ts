@@ -1,22 +1,22 @@
 import prismaClient from "../../prisma";
 
 interface SchedulingRequest{
-  Scheduling_id: string;
+  scheduling_id: string;
 }
 
 class FinishSchedulingService{
-  async execute({ Scheduling_id }: SchedulingRequest){
+  async execute({ scheduling_id }: SchedulingRequest){
 
-    const Scheduling = await prismaClient.scheduling.update({
+    const scheduling = await prismaClient.scheduling.update({
       where:{
-        id: Scheduling_id
+        id: scheduling_id
       },
       data:{
         status: true,
       }
     })
 
-    return Scheduling;
+    return scheduling;
 
   }
 }

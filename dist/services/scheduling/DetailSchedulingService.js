@@ -12,18 +12,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RemoveSchedulingService = void 0;
+exports.DetailSchedulingService = void 0;
 const prisma_1 = __importDefault(require("../../prisma"));
-class RemoveSchedulingService {
-    execute({ scheduling_id }) {
+class DetailSchedulingService {
+    execute(scheduling_id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const scheduling = yield prisma_1.default.scheduling.delete({
+            const scheduling = yield prisma_1.default.scheduling.findFirst({
                 where: {
-                    id: scheduling_id,
+                    id: scheduling_id
+                },
+                select: {
+                    id: true,
+                    name: true,
+                    plate: true,
+                    date: true,
+                    hour: true,
+                    washingType: true
                 }
             });
             return scheduling;
         });
     }
 }
-exports.RemoveSchedulingService = RemoveSchedulingService;
+exports.DetailSchedulingService = DetailSchedulingService;

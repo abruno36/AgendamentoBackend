@@ -14,10 +14,10 @@ const FinishSchedulingService_1 = require("../../services/scheduling/FinishSched
 class FinishSchedulingController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { Scheduling_id } = req.body;
+            const { scheduling_id } = req.body;
             const finishSchedulingService = new FinishSchedulingService_1.FinishSchedulingService();
             const Scheduling = yield finishSchedulingService.execute({
-                Scheduling_id
+                scheduling_id
             });
             return res.json(Scheduling);
         });
