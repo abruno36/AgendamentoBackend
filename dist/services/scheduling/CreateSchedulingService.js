@@ -28,17 +28,26 @@ class CreateSchedulingService {
             if (userAlreadyExists) {
                 throw new Error("Este horário já esta agendado para este veículo!");
             }
-            const scheduling = yield prisma_1.default.scheduling.create({
-                data: {
-                    name: name,
-                    plate: plate,
-                    date: date,
-                    hour: hour,
-                    washingType: washingType
-                }
-            });
-            return scheduling;
+            if (validarPlacaMercosul(plate)) {
+                const scheduling = yield prisma_1.default.scheduling.create({
+                    data: {
+                        name: name,
+                        plate: plate,
+                        date: date,
+                        hour: hour,
+                        washingType: washingType
+                    }
+                });
+                return scheduling;
+            }
+            else {
+                throw new Error('Placa inválida. Por favor, insira uma placa Mercosul válida!');
+            }
         });
     }
 }
 exports.CreateSchedulingService = CreateSchedulingService;
+function validarPlacaMercosul(placa) {
+    const regexPlacaMercosul = /^[A-Z]{3}[0-9][A-Z][0-9]{2}$/;
+    return regexPlacaMercosul.test(placa);
+}

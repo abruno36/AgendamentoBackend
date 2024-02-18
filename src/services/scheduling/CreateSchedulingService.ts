@@ -24,19 +24,29 @@ class CreateSchedulingService{
       throw new Error("Este horário já esta agendado para este veículo!")
     }
 
-    const scheduling = await prismaClient.scheduling.create({
-      data:{
-        name: name,
-        plate: plate,
-        date: date,
-        hour: hour,
-        washingType: washingType
+    if(validarPlacaMercosul(plate))
+      {
+          const scheduling = await prismaClient.scheduling.create({
+              data:{
+                name: name,
+                plate: plate,
+                date: date,
+                hour: hour,
+                washingType: washingType
+              }
+          })
+          return scheduling;
+      } 
+      else 
+      {
+        throw new Error('Placa inválida. Por favor, insira uma placa Mercosul válida!')
       }
-    })
-
-    return scheduling;
-
   }
+}
+
+function validarPlacaMercosul(placa: string): boolean {
+  const regexPlacaMercosul = /^[A-Z]{3}[0-9][A-Z][0-9]{2}$/;
+  return regexPlacaMercosul.test(placa);
 }
 
 export { CreateSchedulingService }
