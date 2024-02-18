@@ -17,9 +17,6 @@ import uploadConfig from './config/multer'
 
 const router = Router();
 
-//pasta onde será gravado as imagens
-const upload = multer(uploadConfig.upload("./tmp"));
-
 //-- ROTAS USER --
 router.post('/users', new CreateUserController().handle)
 router.post('/session', new AuthUserController().handle)
