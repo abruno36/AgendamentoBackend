@@ -17,8 +17,7 @@ class DetailSchedulingService{
         plate: true,
         date: true,
         hour: true,
-        washingType: true,
-        vehicle: true
+        washingType: true
       }
     })
 

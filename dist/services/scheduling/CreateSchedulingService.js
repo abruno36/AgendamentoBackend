@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateSchedulingService = void 0;
 const prisma_1 = __importDefault(require("../../prisma"));
 class CreateSchedulingService {
-    execute({ name, plate, date, hour, washingType, vehicle }) {
+    execute({ name, plate, date, hour, washingType }) {
         return __awaiter(this, void 0, void 0, function* () {
             //Verificar se esse email já está cadastrado na plataforma
             const userAlreadyExists = yield prisma_1.default.scheduling.findFirst({
@@ -34,8 +34,7 @@ class CreateSchedulingService {
                     plate: plate,
                     date: date,
                     hour: hour,
-                    washingType: washingType,
-                    vehicle: vehicle
+                    washingType: washingType
                 }
             });
             return scheduling;

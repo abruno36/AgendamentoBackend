@@ -31,7 +31,6 @@ model Scheduling{
   hour String
   washingType String
   status Boolean @default(false)
-  vehicle String
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
 

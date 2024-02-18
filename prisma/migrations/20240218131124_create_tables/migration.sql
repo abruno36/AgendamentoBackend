@@ -19,7 +19,6 @@ CREATE TABLE "schedulings" (
     "hour" TEXT NOT NULL,
     "washingType" TEXT NOT NULL,
     "status" BOOLEAN NOT NULL DEFAULT false,
-    "vehicle" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
 
