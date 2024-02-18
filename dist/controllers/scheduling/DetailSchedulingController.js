@@ -14,9 +14,11 @@ const DetailSchedulingService_1 = require("../../services/scheduling/DetailSched
 class DetailSchedulingController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const scheduling_id = req.scheduling_id;
-            const detailUserService = new DetailSchedulingService_1.DetailSchedulingService();
-            const scheduling = yield detailUserService.execute(scheduling_id);
+            const scheduling_id = req.query.scheduling_id;
+            const detailSchedulingService = new DetailSchedulingService_1.DetailSchedulingService();
+            const scheduling = yield detailSchedulingService.execute({
+                scheduling_id
+            });
             return res.json(scheduling);
         });
     }

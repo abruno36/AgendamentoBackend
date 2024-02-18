@@ -14,14 +14,15 @@ const CreateSchedulingService_1 = require("../../services/scheduling/CreateSched
 class CreateSchedulingController {
     handle(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, plate, date, hour, washingType } = req.body;
+            const { name, plate, date, hour, washingType, vehicle } = req.body;
             const createSchedulingService = new CreateSchedulingService_1.CreateSchedulingService();
             const scheduling = yield createSchedulingService.execute({
                 name,
                 plate,
                 date,
                 hour,
-                washingType
+                washingType,
+                vehicle
             });
             return res.json(scheduling);
         });

@@ -5,11 +5,13 @@ import { DetailSchedulingService } from '../../services/scheduling/DetailSchedul
 class DetailSchedulingController{
   async handle(req: Request, res: Response){
     
-    const scheduling_id = req.scheduling_id;
+    const scheduling_id = req.query.scheduling_id as string;
 
-    const detailUserService = new DetailSchedulingService();
+    const detailSchedulingService = new DetailSchedulingService();
 
-    const scheduling = await detailUserService.execute(scheduling_id);
+    const scheduling = await detailSchedulingService.execute({
+      scheduling_id
+    })
 
     return res.json(scheduling);
 

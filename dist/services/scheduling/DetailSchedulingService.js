@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DetailSchedulingService = void 0;
 const prisma_1 = __importDefault(require("../../prisma"));
 class DetailSchedulingService {
-    execute(scheduling_id) {
+    execute({ scheduling_id }) {
         return __awaiter(this, void 0, void 0, function* () {
             const scheduling = yield prisma_1.default.scheduling.findFirst({
                 where: {
@@ -27,7 +27,8 @@ class DetailSchedulingService {
                     plate: true,
                     date: true,
                     hour: true,
-                    washingType: true
+                    washingType: true,
+                    vehicle: true
                 }
             });
             return scheduling;

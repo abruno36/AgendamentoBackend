@@ -5,7 +5,7 @@ interface DetailRequest{
 }
 
 class DetailSchedulingService{
-  async execute(scheduling_id: string){
+  async execute( {scheduling_id }: DetailRequest ){
 
     const scheduling = await prismaClient.scheduling.findFirst({
       where:{
@@ -17,7 +17,8 @@ class DetailSchedulingService{
         plate: true,
         date: true,
         hour: true,
-        washingType: true
+        washingType: true,
+        vehicle: true
       }
     })
 

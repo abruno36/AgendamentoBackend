@@ -3,7 +3,7 @@ import { CreateSchedulingService } from '../../services/scheduling/CreateSchedul
 
 class CreateSchedulingController{
   async handle(req: Request, res: Response){
-    const { name, plate, date, hour, washingType } = req.body;
+    const { name, plate, date, hour, washingType, vehicle } = req.body;
 
     const createSchedulingService = new CreateSchedulingService();
 
@@ -12,7 +12,8 @@ class CreateSchedulingController{
       plate,
       date,
       hour,
-      washingType
+      washingType,
+      vehicle
     });
 
     return res.json(scheduling);

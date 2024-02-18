@@ -6,10 +6,11 @@ interface SchedulingRequest{
   date: any;
   hour: string
   washingType: string
+  vehicle: string
 }
 
 class CreateSchedulingService{
-  async execute({name, plate, date, hour, washingType}: SchedulingRequest ){
+  async execute({name, plate, date, hour, washingType, vehicle}: SchedulingRequest ){
 
         //Verificar se esse email já está cadastrado na plataforma
     const userAlreadyExists = await prismaClient.scheduling.findFirst({
@@ -30,7 +31,8 @@ class CreateSchedulingService{
         plate: plate,
         date: date,
         hour: hour,
-        washingType: washingType
+        washingType: washingType,
+        vehicle: vehicle
       }
     })
 
